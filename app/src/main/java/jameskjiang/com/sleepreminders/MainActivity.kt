@@ -13,17 +13,18 @@ class MainActivity : AppCompatActivity() {
 
         //Go to list of phrases
         button_goto_phrases.setOnClickListener {
-            val intent: Intent = Intent(this, PhrasesActivity::class.java)
+            val intent = Intent(this, PhrasesActivity::class.java)
             startActivity(intent)
         }
     }
+
 }
 
 
 /* PLAN:
-Create Phrases class
-Make list in PhrasesActivity
-Allow user to add phrases as well as edit existing ones
+Create Phrases class DONE
+Make list in PhrasesActivity DONE
+Allow user to add phrases as well as edit existing ones NEED TO IMPLEMENT EDITING
 
 Create Time class
 Create AddTimeActivity
@@ -31,4 +32,5 @@ Allow user to add and edit times
 Display list of times in ActivityMain
 
 Set up notifications
+SET UP MEMORY!!
  */
