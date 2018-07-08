@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_add_phrase.*
 
 //Activity for adding and editing phrases
@@ -13,16 +14,28 @@ class AddPhraseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_phrase)
 
-        var phrases = intent.getSerializableExtra("phrases") as Phrases
+        val phrasesSharedPreferences = PhrasesSharedPreferences(this)
+        var phrasesSet = phrasesSharedPreferences.getPhrasesSet()
+
+        //Cancel adding new phrase
+        button_cancel_add_phrase.setOnClickListener {
+            val intent = Intent(this, PhrasesActivity::class.java)
+            startActivity(intent)
+        }
 
         //Save new phrase by appending to phrases list and returning it back to PhrasesActivity
         button_save_phrase.setOnClickListener {
-           phrases.phraseList.add(editText_new_phrase.text.toString())
+            if(!editText_new_phrase.text.isNullOrEmpty()) {
 
-            val returnIntent = Intent()
-            returnIntent.putExtra("return_phrases", phrases)
-            setResult(Activity.RESULT_OK, returnIntent)
-            finish()
+                //Convert set to list to append, then convert back to set to send to shared preferences
+                val newSet = phrasesSet.toMutableList()
+                newSet.add(editText_new_phrase.text.toString())
+                phrasesSharedPreferences.setPhrasesSet(newSet.toMutableSet())
+
+                //Go back to PhrasesActivity
+                val returnIntent = Intent(this, PhrasesActivity::class.java)
+                startActivity(returnIntent)
+            }
         }
     }
 }

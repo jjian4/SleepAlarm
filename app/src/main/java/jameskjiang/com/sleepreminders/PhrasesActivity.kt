@@ -10,31 +10,28 @@ import kotlinx.android.synthetic.main.activity_phrases.*
 //List of all notification quotes the reminder app will use
 class PhrasesActivity : AppCompatActivity() {
 
-    var phrases = Phrases(mutableListOf("Hello", "Bye"))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phrases)
 
+        val phrasesSharedPreferences = PhrasesSharedPreferences(this)
+        var phrasesSet = phrasesSharedPreferences.getPhrasesSet()
+
         recyclerView_phrases.layoutManager = LinearLayoutManager(this)
-        recyclerView_phrases.adapter = PhrasesAdapter(phrases.phraseList)
+        recyclerView_phrases.adapter = PhrasesAdapter(phrasesSet)
+
+        //Go to Schedule (Main activity)
+        button_goto_main.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         //Go to Add phrase activity
         button_goto_add_phrase.setOnClickListener {
             val intent = Intent(this, AddPhraseActivity::class.java)
-            intent.putExtra("phrases", phrases)
-            startActivityForResult(intent, 1)
+            startActivity(intent)
         }
     }
 
-    //Retrieve new phrase from AddPhraseActivity and reload the recyclerView
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode == Activity.RESULT_OK && data != null) {
-            phrases = data.getSerializableExtra("return_phrases") as Phrases
-
-            recyclerView_phrases.adapter = PhrasesAdapter(phrases.phraseList)
-        }
-    }
 }

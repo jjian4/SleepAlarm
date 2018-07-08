@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.phrases_row.view.*
 
-//Adapter for PhrasesActivity
-class PhrasesAdapter(val phrases:MutableList<String>): RecyclerView.Adapter<CustomViewHolder>() {
+//Adapter for PhrasesActivity to make the list view
+class PhrasesAdapter(val phrases:MutableSet<String>): RecyclerView.Adapter<CustomViewHolder>() {
 
     override fun getItemCount(): Int {
         return phrases.size
@@ -20,7 +20,9 @@ class PhrasesAdapter(val phrases:MutableList<String>): RecyclerView.Adapter<Cust
     }
 
     override fun onBindViewHolder(p0: CustomViewHolder, position: Int) {
-        p0.view.textView_phrase?.text = phrases.get(position)    }
+        val phrasesList = phrases.toList()
+        p0.view.textView_phrase?.text = phrasesList.get(position)
+    }
 
 }
 
