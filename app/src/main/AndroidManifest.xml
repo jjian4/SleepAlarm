@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PhrasesActivity" />
-        <activity android:name=".AddPhraseActivity"></activity>
+        <activity android:name=".AddPhraseActivity" android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

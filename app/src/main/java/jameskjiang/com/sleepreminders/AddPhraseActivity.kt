@@ -29,7 +29,7 @@ class AddPhraseActivity : AppCompatActivity() {
 
                 //Convert set to list to append, then convert back to set to send to shared preferences
                 val newSet = phrasesSet.toMutableList()
-                newSet.add(editText_new_phrase.text.toString())
+                newSet.add(editText_new_phrase.text.toString().capitalize())
                 phrasesSharedPreferences.setPhrasesSet(newSet.toMutableSet())
 
                 //Go back to PhrasesActivity
