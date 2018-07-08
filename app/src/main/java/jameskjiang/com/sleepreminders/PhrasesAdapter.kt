@@ -20,7 +20,8 @@ class PhrasesAdapter(val phrases:MutableSet<String>): RecyclerView.Adapter<Custo
     }
 
     override fun onBindViewHolder(p0: CustomViewHolder, position: Int) {
-        val phrasesList = phrases.toList()
+        val phrasesList = phrases.toMutableList()
+        phrasesList.sort()
         p0.view.textView_phrase?.text = phrasesList.get(position)
     }
 

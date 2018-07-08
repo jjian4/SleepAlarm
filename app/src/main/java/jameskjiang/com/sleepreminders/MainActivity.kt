@@ -22,9 +22,10 @@ class MainActivity : AppCompatActivity() {
 
 
 /* PLAN:
-Create Phrases class DONE / UNDONE(Switched to SharedPreferences method to store internal memory)
-Make list in PhrasesActivity DONE
+Create Phrases class DONE / UNDONE (Switched to SharedPreferences method to store internal memory)
+Make list in PhrasesActivity DONE, Alphabetized
 Allow user to add phrases as well as edit existing ones NEED TO IMPLEMENT EDITING
+TODO: allow autocorrect and automatic editing to make all phrases capitalized
 
 Create Time class
 Create AddTimeActivity

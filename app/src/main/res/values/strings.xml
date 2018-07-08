@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Sleep Reminders</string>
+
+    <string name="schedule_activity">Reminder Times</string>
+    <string name="goto_phrases_button">Reminders</string>
+
+    <string name="phrases_activity">Reminder Notifications</string>
+    <string name="goto_schedule_button">Schedule</string>
+    <string name="add_phrase_button">Add Quote</string>
+
+    <string name="add_phrase_activity">Add/Edit Quote</string>
+    <string name="add_phrase_editText_hint">Enter a reminder</string>
+    <string name="cancel_add_phrase_button">Cancel</string>
+    <string name="save_phrase_button">Save</string>
 </resources>
