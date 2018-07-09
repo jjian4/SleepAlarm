@@ -1,13 +1,15 @@
 package jameskjiang.com.sleepreminders
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.phrases_row.view.*
 
 //Adapter for PhrasesActivity to make the list view
-class PhrasesAdapter(val phrases:MutableSet<String>): RecyclerView.Adapter<CustomViewHolder>() {
+class PhrasesAdapter(val phrases:MutableSet<String>, val phrasesActivity: PhrasesActivity): RecyclerView.Adapter<CustomViewHolder>() {
 
     override fun getItemCount(): Int {
         return phrases.size
@@ -19,10 +21,18 @@ class PhrasesAdapter(val phrases:MutableSet<String>): RecyclerView.Adapter<Custo
         return CustomViewHolder(cellForRow)
     }
 
-    override fun onBindViewHolder(p0: CustomViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val phrasesList = phrases.toMutableList()
         phrasesList.sort()
-        p0.view.textView_phrase?.text = phrasesList.get(position)
+        holder.view.textView_phrase?.text = phrasesList.get(position)
+
+        //Edit reminder
+        holder.itemView.setOnClickListener {
+            Log.d("James", "clicked $position")
+            val intent = Intent(phrasesActivity, AddPhraseActivity::class.java)
+            intent.putExtra("Edit", phrasesList.get(position))
+            phrasesActivity.startActivity(intent)
+        }
     }
 
 }

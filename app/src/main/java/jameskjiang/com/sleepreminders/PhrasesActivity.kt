@@ -15,11 +15,13 @@ class PhrasesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phrases)
 
+        //Retrieve phrases from app memory
         val phrasesSharedPreferences = PhrasesSharedPreferences(this)
         var phrasesSet = phrasesSharedPreferences.getPhrasesSet()
 
+        //Create layout
         recyclerView_phrases.layoutManager = LinearLayoutManager(this)
-        recyclerView_phrases.adapter = PhrasesAdapter(phrasesSet)
+        recyclerView_phrases.adapter = PhrasesAdapter(phrasesSet, this)
 
         //Go to Schedule (Main activity)
         button_goto_main.setOnClickListener {
@@ -32,6 +34,7 @@ class PhrasesActivity : AppCompatActivity() {
             val intent = Intent(this, AddPhraseActivity::class.java)
             startActivity(intent)
         }
+
     }
 
 }
