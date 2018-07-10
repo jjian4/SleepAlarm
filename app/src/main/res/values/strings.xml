@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Sleep Reminders</string>
 
-    <string name="schedule_activity">Reminder Times</string>
+    <string name="schedule_activity">Schedule</string>
     <string name="goto_phrases_button">Reminders</string>
 
-    <string name="phrases_activity">Reminder Notifications</string>
+    <string name="phrases_activity">Reminders</string>
     <string name="goto_schedule_button">Schedule</string>
     <string name="add_phrase_button">Add Quote</string>
 
