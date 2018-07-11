@@ -5,6 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
+import android.util.Log
+import android.widget.SimpleAdapter
 import kotlinx.android.synthetic.main.activity_phrases.*
 
 //List of all notification quotes the reminder app will use
@@ -22,6 +26,8 @@ class PhrasesActivity : AppCompatActivity() {
         //Create layout
         recyclerView_phrases.layoutManager = LinearLayoutManager(this)
         recyclerView_phrases.adapter = PhrasesAdapter(phrasesSet, this)
+
+        Log.d("James", "PhrasesActivity: ${phrasesSet.toString()}")
 
         //Go to Schedule (Main activity)
         button_goto_main.setOnClickListener {

@@ -26,17 +26,20 @@
 
     <Button
         android:id="@+id/button_save_phrase"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
+        android:layout_marginStart="8dp"
         android:background="@color/colorAccent"
         android:text="@string/save_phrase_button"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_delete_phrase" />
 
     <Button
         android:id="@+id/button_cancel_add_phrase"
@@ -65,4 +68,19 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_delete_phrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorAccent"
+        android:text="@string/delete_phrase_button"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_cancel_add_phrase" />
 </android.support.constraint.ConstraintLayout>

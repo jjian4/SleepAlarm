@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.phrases_row.view.*
 
 //Adapter for PhrasesActivity to make the list view
-class PhrasesAdapter(val phrases:MutableSet<String>, val phrasesActivity: PhrasesActivity): RecyclerView.Adapter<CustomViewHolder>() {
+class PhrasesAdapter(val phrases:MutableSet<String>, val phrasesActivity: PhrasesActivity):
+        RecyclerView.Adapter<CustomViewHolder>() {
 
     override fun getItemCount(): Int {
         return phrases.size
@@ -34,6 +35,7 @@ class PhrasesAdapter(val phrases:MutableSet<String>, val phrasesActivity: Phrase
             phrasesActivity.startActivity(intent)
         }
     }
+
 
 }
 
