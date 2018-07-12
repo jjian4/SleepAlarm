@@ -23,6 +23,8 @@ class PhrasesActivity : AppCompatActivity() {
         val phrasesSharedPreferences = PhrasesSharedPreferences(this)
         var phrasesSet = phrasesSharedPreferences.getPhrasesSet()
 
+        Log.d("James", "PhrasesActivity: ${phrasesSet.toString()}")
+
         //Create layout
         recyclerView_phrases.layoutManager = LinearLayoutManager(this)
         recyclerView_phrases.adapter = PhrasesAdapter(phrasesSet, this)

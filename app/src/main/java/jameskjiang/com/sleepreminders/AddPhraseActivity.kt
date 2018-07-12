@@ -61,18 +61,17 @@ class AddPhraseActivity : AppCompatActivity() {
         button_save_phrase.setOnClickListener {
             if(!editText_new_phrase.text.isNullOrEmpty()) {
 
-                //Add new text to set
-                phrasesSet.add(editText_new_phrase.text.toString().capitalize())
-
-                Log.d("James", phrasesSet.toString())
-
                 //Edited phrase replaces original
                 if(intent.hasExtra("Edit")) {
                     phrasesSet.remove(phrase)
                 }
 
-                //Save to shared preferences
-                phrasesSharedPreferences.setPhrasesSet(phrasesSet)
+
+                //Bug fixed: Did not save correctly when .add was used on set, must convert to list
+                //Convert set to list to append, then convert back to set to send to shared preferences
+                val newSet = phrasesSet.toMutableList()
+                newSet.add(editText_new_phrase.text.toString().capitalize())
+                phrasesSharedPreferences.setPhrasesSet(newSet.toMutableSet())
 
                 //Go back to PhrasesActivity
                 val returnIntent = Intent(this, PhrasesActivity::class.java)
