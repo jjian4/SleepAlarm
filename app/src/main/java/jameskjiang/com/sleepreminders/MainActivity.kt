@@ -16,22 +16,21 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, PhrasesActivity::class.java)
             startActivity(intent)
         }
+
+        //Show fragment that is used to set time
+        button_set_time.setOnClickListener {
+            val popTime = PopTimeFragment()
+            val fm = this@MainActivity.supportFragmentManager
+            popTime.show(fm, "Select Time")
+        }
+    }
+
+    //Called in fragment, sets notification time
+    fun setTime(hours: Int, min: Int) {
+        textView_show_time.text = hours.toString() + ":" + min.toString()
+
+        val saveData = TimeSaveData(applicationContext)
+        saveData.setAlarm(hours, min)
     }
 
 }
-
-
-/* PLAN:
-Create Phrases class DONE / UNDONE (Switched to SharedPreferences method to store internal memory)
-Make list in PhrasesActivity DONE, Alphabetized
-Allow user to add phrases as well as edit existing ones NEED TO IMPLEMENT EDITING
-TODO: allow autocorrect and automatic editing to make all phrases capitalized
-
-Create Time class
-Create AddTimeActivity
-Allow user to add and edit times
-Display list of times in ActivityMain
-
-Set up notifications
-SET UP MEMORY!!
- */
