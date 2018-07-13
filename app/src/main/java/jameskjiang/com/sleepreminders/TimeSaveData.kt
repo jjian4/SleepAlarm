@@ -6,11 +6,30 @@ import android.content.Context
 import android.content.Intent
 import java.util.*
 
-//Used to save the times that a set, and sends message to TimeBroadcastReceive when time is reached
+//Used to save the times that are set, and sends message to TimeBroadcastReceive when time is reached
 class TimeSaveData(context: Context) {
     var context = context
 
-    fun setAlarm(hour: Int, min: Int) {
+    //Save data in shared preferences so that broadcast will be called even when phone is rebooted
+    var timeSharedRef = context.getSharedPreferences("myref", Context.MODE_PRIVATE)
+    fun saveData(hour: Int, min: Int) {
+        var editor = timeSharedRef.edit()
+        editor.putInt("hour", hour)
+        editor.putInt("min", min)
+        editor.commit()
+    }
+
+    fun getHour(): Int {
+        return timeSharedRef!!.getInt("hour", 0)
+    }
+    fun getMin(): Int {
+        return timeSharedRef!!.getInt("min", 0)
+    }
+
+    fun setAlarm() {
+
+        val hour = getHour()
+        val min = getMin()
 
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.HOUR_OF_DAY, hour)

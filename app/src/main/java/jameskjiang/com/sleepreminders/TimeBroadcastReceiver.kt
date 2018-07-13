@@ -15,5 +15,11 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
             Toast.makeText(context, bundle.getString("message"), Toast.LENGTH_LONG).show()
         }
 
+        //if phone is restarted broadcast is lost
+        else if(intent!!.action.equals("android.intent.action.BOOT_COMPLETED")) {
+            val saveData = TimeSaveData(context!!)
+            saveData.setAlarm()
+        }
+
     }
 }
