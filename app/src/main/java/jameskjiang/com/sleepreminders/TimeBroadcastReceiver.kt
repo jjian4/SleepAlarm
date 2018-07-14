@@ -63,13 +63,20 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
         //Randomly choose a phrase from the set to use as notification
         val phrasesSharedPreferences = PhrasesSharedPreferences(context)
         var phrasesList = phrasesSharedPreferences.getPhrasesSet().toList()
-        fun ClosedRange<Int>.random() =
-                Random().nextInt((endInclusive + 1) - start) +  start
-        val phrase = phrasesList.get((0 until phrasesList.size).random())
+        val phrase: String
+        if(phrasesList.isNotEmpty()) {
+            fun ClosedRange<Int>.random() =
+                    Random().nextInt((endInclusive + 1) - start) + start
+
+            phrase = phrasesList.get((0 until phrasesList.size).random())
+        } else {
+            phrase = "Reminder to sleep"
+        }
 
         //Build the notification
         val notification = Notification.Builder(context, channelID)
                 .setContentTitle(phrase)
+                .setContentText("Click to customize your reminders")
                 .setSmallIcon(R.drawable.alarm_icon)
                 .setChannelId(channelID)
                 .setContentIntent(pendingIntent)
