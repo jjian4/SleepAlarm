@@ -51,8 +51,8 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
         val notificationID = 101
         val channelID = "channel_id_01"
 
-        //Go to MainActivity when notification is clicked
-        val resultIntent = Intent(context, MainActivity::class.java)
+        //Go to PhrasesActivity when notification is clicked
+        val resultIntent = Intent(context, PhrasesActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
                 context,
                 0,
