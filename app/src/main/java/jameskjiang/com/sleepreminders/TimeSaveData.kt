@@ -40,7 +40,6 @@ class TimeSaveData(context: Context) {
 
         //Send to TimeBroadcastReceiver when time is reached
         var intent = Intent(context, TimeBroadcastReceiver::class.java)
-        intent.putExtra("message", "Alarm time")
         intent.action = "com.tester.alarmmanager"
         val pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 

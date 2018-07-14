@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         saveData.setAlarm()
     }
 
-    //Used to display fully formatted time
+    //Used to combine time components into a string
     fun formatTime(hour:Int, min:Int): String {
         var hourStr = hour.toString()
         var pm = false
