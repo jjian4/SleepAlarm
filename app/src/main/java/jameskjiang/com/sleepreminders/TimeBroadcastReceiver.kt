@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Icon
 import android.util.Log
 import android.widget.Toast
 import java.util.*
@@ -24,7 +25,7 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
             sendNotification(context!!)
         }
 
-        //if phone is restarted broadcast is lost
+        //if phone is restarted broadcast is lost, so set alarm again using shared preferences data
         else if(intent.action.equals("android.intent.action.BOOT_COMPLETED")) {
             val saveData = TimeSaveData(context!!)
             saveData.setAlarm()
@@ -73,6 +74,10 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
             phrase = "Reminder to sleep"
         }
 
+        //Add action to notification
+        val icon = Icon.createWithResource(context, android.R.drawable.ic_dialog_info)
+        val action = Notification.Action.Builder(icon, "Open", pendingIntent).build()
+
         //Build the notification
         val notification = Notification.Builder(context, channelID)
                 .setContentTitle(phrase)
@@ -80,6 +85,7 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
                 .setSmallIcon(R.drawable.alarm_notification)
                 .setChannelId(channelID)
                 .setContentIntent(pendingIntent)
+                .setActions(action)
                 .build()
 
         notificationManager?.notify(notificationID, notification)

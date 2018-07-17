@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Sleep Reminders</string>
 
-    <string name="schedule_activity">Alarm</string>
+    <string name="schedule_activity">Sleep Alarm</string>
+    <string name="time_textView">Set a time</string>
+    <string name="cancel_alarm_button">Off</string>
     <string name="goto_phrases_button">Notifications</string>
 
     <string name="phrases_activity">Notifications</string>

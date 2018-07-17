@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="192dp"
-        android:text="Set a time"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/time_textView"
+        android:textColor="@color/colorAccent"
         android:textSize="50sp"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -63,5 +63,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_show_time"
         app:srcCompat="@mipmap/add_alarm_icon" />
+
+    <Button
+        android:id="@+id/button_cancel_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:text="@string/cancel_alarm_button"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_set_time" />
 
 </android.support.constraint.ConstraintLayout>
