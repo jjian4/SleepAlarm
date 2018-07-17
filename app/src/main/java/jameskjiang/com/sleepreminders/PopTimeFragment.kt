@@ -11,13 +11,20 @@ import android.widget.TimePicker
 import kotlinx.android.synthetic.main.fragment_pop_time.*
 
 //Fragment that pops up when user wants to set a time to receive notification
-class PopTimeFragment: DialogFragment() {
+class PopTimeFragment(): DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var timeView = inflater.inflate(R.layout.fragment_pop_time, container, false)
 
         var btn_done = timeView.findViewById(R.id.button_time_done) as Button
         var tp = timeView.findViewById(R.id.time_picker) as TimePicker
+
+        //Retrieve previously set hour and minute, if none default is 11pm
+        val initialHour = arguments!!.getInt("hour")
+        val initialMin = arguments!!.getInt("min")
+
+        tp.hour = initialHour
+        tp.minute = initialMin
 
         btn_done.setOnClickListener {
             val ma = activity as MainActivity
@@ -33,5 +40,7 @@ class PopTimeFragment: DialogFragment() {
 
         return timeView
     }
+
+
 
 }

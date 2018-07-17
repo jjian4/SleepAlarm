@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_alarm_add_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_alarm_off_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -48,8 +48,8 @@
                                       <entry key="backgroundColor" value="e17366" />
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
                                       <entry key="foregroundAssetType" value="CLIP_ART" />
-                                      <entry key="foregroundLayerName" value="ic_launcher_foreground" />
-                                      <entry key="outputName" value="add_alarm_icon" />
+                                      <entry key="foregroundLayerName" value="ic_cancel_alarm" />
+                                      <entry key="outputName" value="cancel_alarm_icon" />
                                     </map>
                                   </option>
                                 </PersistentState>
