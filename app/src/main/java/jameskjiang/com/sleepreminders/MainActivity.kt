@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val saveData = TimeSaveData(applicationContext)
         if(saveData.getHour() != -1) {
             textView_show_time.text = formatTime(saveData.getHour(), saveData.getMin())
+            button_cancel_alarm.visibility = View.VISIBLE
         }
 
         //Show fragment that is used to set time
