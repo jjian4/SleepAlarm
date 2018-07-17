@@ -54,7 +54,7 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
 
         //Go to PhrasesActivity when notification is clicked
         val resultIntent = Intent(context, PhrasesActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(
+        val pendingIntentPhrases = PendingIntent.getActivity(
                 context,
                 0,
                 resultIntent,
@@ -74,20 +74,52 @@ class TimeBroadcastReceiver: BroadcastReceiver() {
             phrase = "Reminder to sleep"
         }
 
+        //Get current time
+        val calendar = Calendar.getInstance()
+        val currentTime = formatTime(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE))
+
+
         //Add action to notification
         val icon = Icon.createWithResource(context, android.R.drawable.ic_dialog_info)
-        val action = Notification.Action.Builder(icon, "Open", pendingIntent).build()
+        val openAction = Notification.Action.Builder(icon, "Open", pendingIntentPhrases).build()
 
         //Build the notification
         val notification = Notification.Builder(context, channelID)
-                .setContentTitle(phrase)
+                .setContentTitle(currentTime + phrase)
                 .setContentText("Click to customize your reminders")
                 .setSmallIcon(R.drawable.alarm_notification)
                 .setChannelId(channelID)
-                .setContentIntent(pendingIntent)
-                .setActions(action)
+                .setContentIntent(pendingIntentPhrases)
+                .setActions(openAction)
                 .build()
 
         notificationManager?.notify(notificationID, notification)
+    }
+
+
+
+    //Used to combine time components, place at beginning of notification
+    fun formatTime(hour:Int, min:Int): String {
+        var hourStr = hour.toString()
+        var pm = false
+
+        if(hour > 11) {
+            hourStr = (hour - 12).toString()
+            pm = true
+        }
+        if(hour == 0 || hour == 12) {
+            hourStr = "12"
+        }
+
+        var minStr = ":$min"
+        if(min < 10) {
+            minStr = ":0$min"
+        }
+
+        if(pm) {
+            return hourStr + minStr + " PM: "
+        } else {
+            return hourStr + minStr + " AM: "
+        }
     }
 }
