@@ -19,7 +19,6 @@ class AddPhraseActivity : AppCompatActivity() {
         val phrasesSharedPreferences = PhrasesSharedPreferences(this)
         var phrasesSet = phrasesSharedPreferences.getPhrasesSet()
 
-        Log.d("James", phrasesSet.toString())
 
         //If editing, get the original string
         var phrase = ""

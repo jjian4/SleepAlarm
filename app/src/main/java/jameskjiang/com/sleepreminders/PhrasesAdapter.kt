@@ -29,7 +29,6 @@ class PhrasesAdapter(val phrases:MutableSet<String>, val phrasesActivity: Phrase
 
         //Edit reminder
         holder.itemView.setOnClickListener {
-            Log.d("James", "clicked $position")
             val intent = Intent(phrasesActivity, AddPhraseActivity::class.java)
             intent.putExtra("Edit", phrasesList.get(position))
             phrasesActivity.startActivity(intent)

@@ -20,10 +20,10 @@ class TimeSaveData(context: Context) {
     }
 
     fun getHour(): Int {
-        return timeSharedRef!!.getInt("hour", 0)
+        return timeSharedRef!!.getInt("hour", -1)
     }
     fun getMin(): Int {
-        return timeSharedRef!!.getInt("min", 0)
+        return timeSharedRef!!.getInt("min", -1)
     }
 
 

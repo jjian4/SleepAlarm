@@ -14,9 +14,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 //Displays and manages the time of day the notification appears
 class MainActivity : AppCompatActivity() {
 
-    //Toggled when alarm is set or cancelled
-    var alarmIsSet = false
-
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +25,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Text displays the set time
+        //Text displays the set time if time is set
         val saveData = TimeSaveData(applicationContext)
-        if(alarmIsSet) {
+        if(saveData.getHour() != -1) {
             textView_show_time.text = formatTime(saveData.getHour(), saveData.getMin())
         }
 
@@ -39,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             val popTime = PopTimeFragment()
             val initialTime = Bundle()
             //Set initial time in the fragment to the set time if alarm is set
-            if(alarmIsSet) {
+            if(saveData.getHour() != -1) {
                 initialTime.putInt("hour", saveData.getHour())
                 initialTime.putInt("min", saveData.getMin())
             } else {    //Default is 11pm
@@ -55,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         //Cancel alarm
         button_cancel_alarm.setOnClickListener {
             saveData.cancelAlarm()
-            alarmIsSet = false
+
             textView_show_time.text = getString(R.string.time_textView)
             textView_show_time.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorAccent))
 
@@ -77,7 +74,6 @@ class MainActivity : AppCompatActivity() {
         val saveData = TimeSaveData(applicationContext)
         saveData.saveData(hours, min)
         saveData.setAlarm()
-        alarmIsSet = true
     }
 
     //Used to combine time components into a string
