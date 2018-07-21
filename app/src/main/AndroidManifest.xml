@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jameskjiang.com.sleepreminders">
+    package="me.jamesjiang.sleepalarm">
 
     <application
         android:allowBackup="true"
@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/alarm_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="me.jamesjiang.sleepalarm.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhrasesActivity" />
-        <activity android:name=".AddPhraseActivity" android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name="me.jamesjiang.sleepalarm.PhrasesActivity" />
+        <activity android:name="me.jamesjiang.sleepalarm.AddPhraseActivity" android:windowSoftInputMode="adjustResize"></activity>
 
-        <receiver android:name=".TimeBroadcastReceiver">
+        <receiver android:name="me.jamesjiang.sleepalarm.TimeBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.tester.alarmmanager"/>
                 <category android:name="android.intent.category.DEFAULT"/>

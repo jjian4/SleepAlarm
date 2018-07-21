@@ -1,11 +1,8 @@
-package jameskjiang.com.sleepreminders
+package me.jamesjiang.sleepalarm
 
-import android.app.Activity
 import android.content.Intent
-import android.content.res.Resources
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_add_phrase.*
 

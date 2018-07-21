@@ -1,4 +1,4 @@
-package jameskjiang.com.sleepreminders
+package me.jamesjiang.sleepalarm
 
 import android.app.AlarmManager
 import android.app.PendingIntent

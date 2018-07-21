@@ -1,4 +1,4 @@
-package jameskjiang.com.sleepreminders
+package me.jamesjiang.sleepalarm
 
 import android.os.Build
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TimePicker
-import kotlinx.android.synthetic.main.fragment_pop_time.*
 
 //Fragment that pops up when user wants to set a time to receive notification
 class PopTimeFragment(): DialogFragment() {

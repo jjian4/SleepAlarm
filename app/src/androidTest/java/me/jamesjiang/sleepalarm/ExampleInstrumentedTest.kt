@@ -1,4 +1,4 @@
-package jameskjiang.com.sleepreminders
+package me.jamesjiang.sleepalarm
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

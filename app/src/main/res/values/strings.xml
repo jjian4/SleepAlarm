@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sleep Reminders</string>
+    <string name="app_name">Sleep Alarm</string>
 
     <string name="schedule_activity">Sleep Alarm</string>
     <string name="time_textView">Set a time</string>
