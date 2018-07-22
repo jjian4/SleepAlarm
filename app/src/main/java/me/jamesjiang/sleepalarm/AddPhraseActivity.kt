@@ -36,7 +36,7 @@ class AddPhraseActivity : AppCompatActivity() {
             textView_add_phrases_activity.text = "Add Quote"
         }
 
-        //Cancel adding new phrase
+        //Cancel adding a new phrase
         button_cancel_add_phrase.setOnClickListener {
             val intent = Intent(this, PhrasesActivity::class.java)
             startActivity(intent)
